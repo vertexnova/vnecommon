@@ -66,11 +66,6 @@ def main() -> int:
         action="store_true",
         help="Clean build directory before building"
     )
-    parser.add_argument(
-        "--run",
-        action="store_true",
-        help="Run example after building"
-    )
 
     args = parser.parse_args()
 
@@ -125,16 +120,6 @@ def main() -> int:
     print()
     print("=== Build Complete ===")
     print(f"Output: {build_dir / 'bin' / build_type}")
-
-    # Run example if requested
-    if args.run and build_examples == "ON":
-        example_path = build_dir / "bin" / build_type / "vnecommon_example.exe"
-        if example_path.exists():
-            print()
-            print("=== Running Example ===")
-            run_command([str(example_path)])
-        else:
-            print(f"WARNING: Example not found at {example_path}")
 
     return 0
 

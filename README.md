@@ -69,8 +69,8 @@ void example() {
 # Debug build with examples
 python scripts/build_windows.py
 
-# Release build and run example
-python scripts/build_windows.py --release --run
+# Release build
+python scripts/build_windows.py --release
 
 # Clean build
 python scripts/build_windows.py --clean

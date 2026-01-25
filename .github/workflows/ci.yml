@@ -50,10 +50,8 @@ jobs:
     - name: Build
       run: cmake --build build --config Release --parallel
 
-    - name: Run Examples
-      working-directory: build
-      run: |
-        ./bin/vnecommon_example
+    - name: Run Example
+      run: ./build/bin/vnecommon_example
 
   macos:
     runs-on: macos-latest
@@ -70,10 +68,8 @@ jobs:
     - name: Build
       run: cmake --build build --config Release --parallel
 
-    - name: Run Examples
-      working-directory: build
-      run: |
-        ./bin/vnecommon_example
+    - name: Run Example
+      run: ./build/bin/vnecommon_example
 
   windows:
     runs-on: windows-latest
@@ -87,4 +83,7 @@ jobs:
         python-version: '3.11'
 
     - name: Build using script
-      run: python scripts/build_windows.py --release --run
+      run: python scripts/build_windows.py --release
+
+    - name: Run Example
+      run: ./build/Release/bin/Release/vnecommon_example.exe

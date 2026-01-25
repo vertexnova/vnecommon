@@ -106,10 +106,3 @@ cmake --build "$BUILD_DIR" --config "$BUILD_TYPE" --parallel
 echo ""
 echo "=== Build Complete ==="
 echo "Output: $BUILD_DIR/bin/"
-
-# Run example if built
-if [ "$BUILD_EXAMPLES" = "ON" ] && [ -f "$BUILD_DIR/bin/vnecommon_example" ]; then
-    echo ""
-    echo "=== Running Example ==="
-    "$BUILD_DIR/bin/vnecommon_example"
-fi
