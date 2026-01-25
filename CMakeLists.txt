@@ -18,6 +18,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_EXTENSIONS False)
 
 #==============================================================================
+# Build Options
+#==============================================================================
+
+option(BUILD_EXAMPLES "Build example programs" OFF)
+
+#==============================================================================
 # Header-Only Library
 #==============================================================================
 
@@ -49,3 +55,11 @@ install(EXPORT VneCommonTargets
     NAMESPACE vne::
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/vnecommon
 )
+
+#==============================================================================
+# Examples
+#==============================================================================
+
+if(BUILD_EXAMPLES)
+    add_subdirectory(examples)
+endif()
