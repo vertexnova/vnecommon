@@ -1,5 +1,14 @@
 # VneCommon
 
+<p align="center">
+  <a href="https://github.com/vertexnova/vnecommon/actions/workflows/ci.yml">
+    <img src="https://github.com/vertexnova/vnecommon/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"/>
+  </a>
+  <img src="https://img.shields.io/badge/C%2B%2B-20-blue.svg" alt="C++ Standard"/>
+  <img src="https://img.shields.io/badge/header--only-yes-brightgreen.svg" alt="Header Only"/>
+  <img src="https://img.shields.io/badge/license-Apache%202.0-green.svg" alt="License"/>
+</p>
+
 Header-only library providing common utilities for VertexNova projects.
 
 ## Features
