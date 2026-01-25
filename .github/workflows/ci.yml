@@ -81,16 +81,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Configure CMake
-      run: |
-        cmake -B build -S . `
-          -DCMAKE_BUILD_TYPE=Release `
-          -DBUILD_EXAMPLES=ON
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
 
-    - name: Build
-      run: cmake --build build --config Release --parallel
-
-    - name: Run Examples
-      working-directory: build
-      run: |
-        .\bin\Release\vnecommon_example.exe
+    - name: Build using script
+      run: python scripts/build_windows.py --release --run

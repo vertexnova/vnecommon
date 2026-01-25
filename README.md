@@ -48,10 +48,46 @@ void example() {
 }
 ```
 
+## Building
+
+### macOS / Linux
+
+```bash
+# Debug build with examples
+./scripts/build_macos.sh
+
+# Release build
+./scripts/build_macos.sh --release
+
+# Clean build
+./scripts/build_macos.sh --clean
+```
+
+### Windows
+
+```powershell
+# Debug build with examples
+python scripts/build_windows.py
+
+# Release build and run example
+python scripts/build_windows.py --release --run
+
+# Clean build
+python scripts/build_windows.py --clean
+```
+
+### CMake Direct
+
+```bash
+cmake -B build -S . -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=ON
+cmake --build build --config Release
+```
+
 ## Requirements
 
 - C++20 or later
 - CMake 3.16 or later
+- Python 3.8+ (for Windows build script)
 
 ## License
 
