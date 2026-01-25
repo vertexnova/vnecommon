@@ -2,7 +2,7 @@
 
 All notable changes to VneCommon will be documented in this file.
 
-## [1.0.0] - 2025-01-24
+## [0.1.0] - 2025-01-24
 
 ### Added
 - Platform detection macros (Windows, macOS, iOS, visionOS, Android, Linux, Web)
