@@ -1,4 +1,4 @@
-# VneCommon
+# VertexNova Common (vnecommon)
 
 <p align="center">
   <a href="https://github.com/vertexnova/vnecommon/actions/workflows/ci.yml">
