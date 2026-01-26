@@ -51,6 +51,26 @@
     } while (false)
 #endif
 
+/**
+ * @def VNE_STATIC_ASSERT(condition, message)
+ * @brief Compile-time assertion with a descriptive message.
+ *        Use for type traits, memory layout validation, and template constraints.
+ * @param condition The compile-time condition to check.
+ * @param message The message to display if the assertion fails.
+ *
+ * @example
+ * VNE_STATIC_ASSERT(sizeof(Vec4f) == 16, "Vec4f must be 16 bytes");
+ * VNE_STATIC_ASSERT(std::is_trivially_copyable_v<Mat4f>, "Mat4f must be trivially copyable");
+ */
+#define VNE_STATIC_ASSERT(condition, message) static_assert(condition, message)
+
+/**
+ * @def VNE_STATIC_ASSERT_EXPR(condition)
+ * @brief Compile-time assertion without a message (uses condition as message).
+ * @param condition The compile-time condition to check.
+ */
+#define VNE_STATIC_ASSERT_EXPR(condition) static_assert(condition, #condition)
+
 //==============================================================================
 // Utility Macros
 //==============================================================================
