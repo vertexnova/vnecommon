@@ -1,33 +1,25 @@
 #pragma once
 /* ---------------------------------------------------------------------
- * Copyright (c) 2024 Ajeet Singh Yadav. All rights reserved.
+ * Copyright (c) 2026 Ajeet Singh Yadav. All rights reserved.
  * Licensed under the Apache License, Version 2.0 (the "License")
  *
  * Author:    Ajeet Singh Yadav
- * Created:   January 2025
+ * Created:   February 2026
  *
  * Autodoc:   yes
  * ----------------------------------------------------------------------
  */
 
-namespace vertexnova {
+namespace vne {
+namespace common {
 
-/**
- * @class NonCopyable
- * @brief Base class that disables copy construction and copy assignment.
- *
- * Inherit privately when a type must not be copied (e.g. mutexes, file handles,
- * unique resources). Move operations are still allowed unless you also inherit
- * NonMovable.
- *
- * @example
- * class MyResource : private NonCopyable { ... };
- */
+//! Base: no copy; move allowed. Inherit privately.
 class NonCopyable {
-public:
+protected:
     NonCopyable() = default;
     ~NonCopyable() = default;
 
+public:
     NonCopyable(const NonCopyable&) = delete;
     NonCopyable& operator=(const NonCopyable&) = delete;
 
@@ -35,22 +27,13 @@ public:
     NonCopyable& operator=(NonCopyable&&) = default;
 };
 
-/**
- * @class NonMovable
- * @brief Base class that disables move construction and move assignment.
- *
- * Inherit privately when a type must not be moved (e.g. objects with stable
- * addresses, or types that manage resources by raw pointer). Copy operations
- * are still allowed unless you also inherit NonCopyable.
- *
- * @example
- * class PinnedObject : private NonMovable { ... };
- */
+//! Base: no move; copy allowed. Inherit privately.
 class NonMovable {
-public:
+protected:
     NonMovable() = default;
     ~NonMovable() = default;
 
+public:
     NonMovable(const NonMovable&) = default;
     NonMovable& operator=(const NonMovable&) = default;
 
@@ -58,22 +41,13 @@ public:
     NonMovable& operator=(NonMovable&&) = delete;
 };
 
-/**
- * @class NonCopyableNonMovable
- * @brief Base class that disables both copy and move operations.
- *
- * Inherit privately for types that are neither copyable nor movable (e.g.
- * singletons, objects with stable identity, or heavy resources that should
- * only be created in place or via a factory).
- *
- * @example
- * class Singleton : private NonCopyableNonMovable { ... };
- */
+//! Base: no copy, no move. Inherit privately.
 class NonCopyableNonMovable {
-public:
+protected:
     NonCopyableNonMovable() = default;
     ~NonCopyableNonMovable() = default;
 
+public:
     NonCopyableNonMovable(const NonCopyableNonMovable&) = delete;
     NonCopyableNonMovable& operator=(const NonCopyableNonMovable&) = delete;
 
@@ -81,4 +55,5 @@ public:
     NonCopyableNonMovable& operator=(NonCopyableNonMovable&&) = delete;
 };
 
-}  // namespace vertexnova
+}  // namespace common
+}  // namespace vne

@@ -13,7 +13,7 @@
 #include <iostream>
 #include <utility>
 
-using namespace vertexnova;
+using namespace vne::common;
 
 //==============================================================================
 // NonCopyable: movable, not copyable (e.g. unique resource)
