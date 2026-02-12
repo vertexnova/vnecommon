@@ -9,6 +9,7 @@
 
 #include "vertexnova/common/common.h"
 
+#include <cstddef>
 #include <iostream>
 #include <utility>
 
@@ -33,11 +34,11 @@ private:
 
 class PinnedBuffer : private NonMovable {
 public:
-    explicit PinnedBuffer(size_t size) : size_(size) {}
-    size_t size() const { return size_; }
+    explicit PinnedBuffer(std::size_t size) : size_(size) {}
+    std::size_t size() const { return size_; }
 
 private:
-    size_t size_;
+    std::size_t size_;
 };
 
 //==============================================================================
