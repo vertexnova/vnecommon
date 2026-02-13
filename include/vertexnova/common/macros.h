@@ -64,6 +64,13 @@
  */
 #define VNE_STATIC_ASSERT_MSG(condition, message) static_assert(condition, message)
 
+/**
+ * @def VNE_STATIC_ASSERT(condition)
+ * @brief Compile-time assertion without a message (uses condition as message).
+ * @param condition The compile-time condition to check.
+ */
+#define VNE_STATIC_ASSERT(condition) static_assert(condition, #condition)
+
 //==============================================================================
 // Utility Macros
 //==============================================================================
