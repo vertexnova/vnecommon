@@ -27,9 +27,10 @@
 #define VNE_ASSERT_MSG(condition, message)                                                 \
     do {                                                                                   \
         if (!(condition)) {                                                                \
-            std::cerr << "Assertion failed: (" #condition "), function " << __FUNCTION__   \
+            const auto& _vne_assert_msg = (message);                                       \
+            std::cerr << "Assertion failed: (" #condition "), function " << __FUNCTION__ \
                       << ", file " << __FILE__ << ", line " << __LINE__ << "." << std::endl \
-                      << "Message: " << message << std::endl;                              \
+                      << "Message: " << _vne_assert_msg << std::endl;                       \
             std::terminate();                                                              \
         }                                                                                  \
     } while (false)
@@ -91,9 +92,10 @@
 #define VNE_ENSURE_MSG(condition, message)                                                 \
     do {                                                                                   \
         if (!(condition)) {                                                                \
-            std::cerr << "Ensure failed: (" #condition "), function " << __FUNCTION__      \
+            const auto& _vne_ensure_msg = (message);                                       \
+            std::cerr << "Ensure failed: (" #condition "), function " << __FUNCTION__     \
                       << ", file " << __FILE__ << ", line " << __LINE__ << "." << std::endl \
-                      << "Message: " << message << std::endl;                              \
+                      << "Message: " << _vne_ensure_msg << std::endl;                       \
             return false;                                                                  \
         }                                                                                  \
     } while (false)
